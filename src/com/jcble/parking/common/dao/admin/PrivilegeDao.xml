@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcble.parking.common.dao.admin.PrivilegeDao">
+	<insert id="insert" parameterType="PrivilegeDto"
+		useGeneratedKeys="true" keyProperty="id"></insert>
+	<update id="update" parameterType="PrivilegeDto"></update>
+	<delete id="delete" parameterType="PrivilegeDto"></delete>
+	<select id="select" parameterType="PrivilegeDto" resultType="PrivilegeDto"></select>
+
+	<select id="getPrivilegesByRoleId" parameterType="Integer"
+		resultType="PrivilegeDto">
+		select p.* from t_privilege p,t_role_privilege rp,t_role r
+		where r.id = rp.roleNo
+		 and p.id = rp.privilegeNo
+		 and r.id = #{roleId}
+	</select>
+</mapper>

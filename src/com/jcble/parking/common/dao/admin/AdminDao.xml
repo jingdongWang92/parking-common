@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcble.parking.common.dao.admin.AdminDao">
+	<insert id="insert" parameterType="AdminDto" useGeneratedKeys="true"
+		keyProperty="id"></insert>
+	<update id="update" parameterType="AdminDto"></update>
+	<delete id="delete" parameterType="AdminDto"></delete>
+	<select id="select" parameterType="AdminDto" resultType="AdminDto"></select>
+
+	<select id="findAdminByAccount" parameterType="AdminDto"
+		resultType="AdminDto">
+		select * from t_administrator where account = #{account};
+	</select>
+</mapper>

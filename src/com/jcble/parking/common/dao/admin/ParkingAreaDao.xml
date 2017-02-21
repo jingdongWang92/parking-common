@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcble.parking.common.dao.admin.ParkingAreaDao">
+	<insert id="insert" parameterType="ParkingAreaDto"
+		useGeneratedKeys="true" keyProperty="id"></insert>
+	<update id="update" parameterType="ParkingAreaDto"></update>
+	<delete id="delete" parameterType="ParkingAreaDto"></delete>
+	<select id="select" parameterType="ParkingAreaDto" resultType="ParkingAreaDto"></select>
+
+	<select id="queryParkingAreas" resultType="ParkingAreaDto" parameterType="ParkingAreaDto">
+		select pla.id,pla.areaName
+		from t_parking_lot_area pla
+		<where>
+			<if test="null != parkingLotId">
+				pla.parkingLotId=#{parkingLotId}
+			</if>
+		</where>
+		order by pla.id asc
+	</select>
+
+</mapper>

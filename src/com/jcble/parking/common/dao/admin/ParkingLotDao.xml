@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcble.parking.common.dao.admin.ParkingLotDao">
+	<insert id="insert" parameterType="ParkingLotDto" useGeneratedKeys="true"
+		keyProperty="id"></insert>
+	<update id="update" parameterType="ParkingLotDto"></update>
+	<delete id="delete" parameterType="ParkingLotDto"></delete>
+	<select id="select" parameterType="ParkingLotDto" resultType="ParkingLotDto"></select>
+
+	<select id="queryParkingLotsByPage" resultType="ParkingLotDto" parameterType="ParkingLotDto">
+		select pl.id,pl.parkinglotName from t_parking_lot pl
+		order by pl.id asc
+	</select>
+
+</mapper>
